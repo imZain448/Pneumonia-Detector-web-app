@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename = 'main.css')}}">
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+        <title>Pneumonia Detector</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class = "jumbotron" id = "title">
+                <h1 class="Header">PNEUMONIA DETECTOR</h1>
+            </div>
+            <div class="row">
+                <div class="col" id="description">
+                    <h2 class="side_heading-1">WHAT IS PNEUMONIA </h2>
+                    Pneumonia is an infection in one or both lungs. Bacteria, viruses, and fungi cause it.
+                    The infection causes inflammation in the air sacs in your lungs, which are called alveoli. The alveoli fill with fluid or pus, making it difficult to breathe
+                    The germs that cause pneumonia are contagious. This means they can spread from person to person.
+                    <br>
+                    Both viral and bacterial pneumonia can spread to others through inhalation of airborne droplets from a sneeze or cough. You can also get these types of pneumonia by coming into contact with surfaces or objects that are contaminated with pneumonia-causing bacteria or viruses. You can contract fungal pneumonia from the environment. However, it doesn’t spread from person to person. <br>
+                    <h4>SOME COMMON SYMPTOMS ARE</h4>
+                    <ul>
+                        <li>coughing</li>
+                        <li>fever</li>
+                        <li>sweating or chills</li>
+                        <li>shortness for breath</li>
+                        <li>chest pain</li>
+                    </ul>
+                    source : <a href="https://www.healthline.com/health/pneumonia#symptoms">healthline.com</a> 
+                </div>
+                <div class="col">
+                    <h3>Please upload the picture of <br> your chest X ray .jpeg file<br> for the model to analyze it</h3>
+                    <form action="/" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Select image</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="image" id="image">
+                                <label class="custom-file-label" for="image">select image..</label>
+                            </div>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                        your x - ray <br>
+                        <img src="{{image}}" alt="" class="image">
+                        <br>
+                        <h4> RESULT : {{result}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <h3>
+                    ABOUT THE MODEL
+                </h3>
+                the model is deep learning neural network which uses convolutional layers and max pooling to learn the details of the image. the model is created using tensorflow keras framework it is trained using Pneumonia chest-xray public dataset available on kaggle.
+                <br>
+                the model is still under development we are very eagerly looking for contributors so if you want to contribute to open source you can do it in the following ways
+                <ol>
+                    <li>By improving the web app  -- <a href="github_repo">GitHub</a></li>
+                    <li>By helping improve the model -- <a href="colab-link">model</a></li>
+                    <li>By creating chest x-ray datasets</li>
+                </ol>
+            </div>
+            <div class="row">
+                <h4>IMPORTANT NOTE</h4>
+                as above mentioned this model is still under development and we suggest you to take the advice of an expert doctor to confirm on what the prediction of the model. also the model does not predict for certain that you could have pneumonia but it aims at predicting you don't have it . <br>
+                if the result of the model is Pneumonia positive it means that you could have Pneumonia but there are certain other lung diseases which shows the similar X-ray but the model does not know about them . so we strongly suggest to follow the doctors advice
+            </div>
+            <footer class="page-footer font-small cyan darken-3" id = "icons">
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12 py-5">
+                    <h4 class="contact">CONTACT ME</h4>
+                    <h6 class="mail">mail me at : ahmadzain.448@gmail.com</h6>
+                    <div class="mb-5 flex-center">
+                    <a class="fb-ic" href="https://www.facebook.com/profile.php?id=100009442673538">
+                        <img src="{{url_for('static' , filename ='facebook (1).png')}}" alt="" class="icon">
+                    </a>
+                    <a class="tw-ic" href="https://www.instagram.com/imzain448/">
+                        <img src="{{url_for('static' , filename = 'instagram.png')}}" alt="" class="icon">
+                    </a>
+                    <a class="gplus-ic" href="https://www.linkedin.com/in/zain-ahmad-15aa25162">
+                        <img src="{{url_for('static' , filename = 'linkedin.png')}}" alt="" class="icon">
+                    </a>
+                    <a class="li-ic" href="https://github.com/imZain448">
+                        <img src="{{url_for('static' , filename = 'github.png')}}" alt="" class="icon">
+                    </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3" id='initials'>
+                @imzain448
+            </div>
+            </footer>
+        </div>
+    </body>
+</html>
